@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datasets
+dataset/
+dataset_dat_files/
+
+# Models
+models/
+*.h5
+*.keras
+*.weights.h5
+*.pkl
+
+# Outputs
+outputs/
+
+# GradCAM outputs
+gradcam/
+
+# Virtual environment
+venv/
+.env/
+
+# VSCode
+.vscode/
+
+# Logs
+logs/
+
+# OS
+Thumbs.db
+.DS_Store

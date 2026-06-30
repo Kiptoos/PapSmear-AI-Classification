@@ -268,11 +268,11 @@ PapSmear-AI-Classification/
 If you use this code or dataset in your research, please cite our paper:
 
 ```bibtex
-@article{kiptoo2024papsmear,
+@article{kiptoo2026papsmear,
   title={Multi-Class Pap Smear Cell Classification Using EfficientNet with Explainable AI: An AI Application for Cervical Cancer Screening},
   author={Kiptoo, Stephen and Nderu, Lawrence and Mutanu, Leah},
   journal={PeerJ Computer Science},
-  year={2024}
+  year={2026}
 }
 ```
 
@@ -299,7 +299,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📧 Contact
 
 **Stephen Kiptoo**
-- Email: kiptoos@gmail.com
+- Email: kiptoos@gmail.com/stephen.kiptoo@jkuat.ac.ke
 - ORCID: 0009-0008-1807-1989
 
 **Lawrence Nderu**

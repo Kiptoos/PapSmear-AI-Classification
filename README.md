@@ -1,131 +1,117 @@
-# PapSmear-AI-Classification
+# 🌐 ALX Project Nexus
 
-Code, fold assignments and out-of-fold predictions for:
+## Overview
+**Project Nexus** is the documentation hub for my journey through the **ALX ProDev Backend Engineering Program**.  
+This repository captures key learnings, tools, and best practices that shaped my understanding of backend engineering and modern software development workflows.
 
-> Kiptoo S, Nderu L, Mutanu L. *Quantifying source-image leakage in Pap smear cell classification: a source-disjoint cross-validation benchmark of CNN and transformer backbones on SIPaKMeD.* PeerJ Computer Science (under revision, 2026).
+---
 
-The study measures how much image-level random splitting inflates accuracy on SIPaKMeD, whose 4,049 cropped-cell images come from only 966 source cluster images. Five ImageNet-pretrained backbones are evaluated under paired **naive** (image-level) and **source-disjoint** (grouped by source image) five-fold cross-validation, repeated five times. Every reported number, table and figure is computed from pooled out-of-fold predictions covering all 4,049 images.
+## 🎯 Program Objective
+The **ProDev Backend Engineering** program is designed to build strong foundational and practical skills in backend systems — from designing scalable APIs to deploying production-ready applications.  
+It focuses on empowering learners to:
+- Architect robust backend systems.
+- Collaborate effectively with frontend teams.
+- Apply software engineering best practices in real-world projects.
 
-## Repository structure
+---
 
+## 🚀 Major Learnings
+
+### 🧠 Key Technologies
+- **Python** — Core programming language for backend logic and automation.
+- **Django** — High-level Python framework for rapid and secure web development.
+- **REST APIs** — Standard approach for building interoperable web services.
+- **GraphQL** — Query language offering flexible data retrieval.
+- **Docker** — Containerization tool for consistent deployment environments.
+- **CI/CD** — Continuous Integration and Deployment pipelines for automation.
+
+---
+
+### ⚙️ Important Backend Development Concepts
+- **Database Design:**  
+  Designing normalized relational databases and understanding ORM (Object Relational Mapping) through Django Models.
+
+- **Asynchronous Programming:**  
+  Leveraging async/await patterns to improve concurrency and performance in I/O-bound operations.
+
+- **Caching Strategies:**  
+  Implementing caching (Redis, Memcached) to enhance response speed and reduce database load.
+
+- **Authentication & Authorization:**  
+  Securing APIs using JWT, OAuth2, and Django’s built-in authentication system.
+
+- **Testing & Debugging:**  
+  Writing unit and integration tests using `pytest` and `Django TestCase` to ensure code reliability.
+
+---
+
+### 🧩 Challenges Faced & Solutions Implemented
+| Challenge | Solution |
+|------------|-----------|
+| Managing environment variables securely | Used `.env` files with `python-dotenv` |
+| Docker setup failures | Fixed version conflicts and rebuilt images cleanly |
+| Slow API responses | Introduced caching and async views |
+| Complex data relationships | Used Django ORM’s related models and query optimizations |
+| Deployment configuration | Applied CI/CD with GitHub Actions and Docker Hub |
+
+---
+
+### 🌱 Best Practices & Personal Takeaways
+- Commit early and often — maintain clean Git history.
+- Write modular, reusable, and well-documented code.
+- Use environment isolation with Docker and virtual environments.
+- Collaborate effectively using Git branching and pull requests.
+- Always prioritize **security**, **performance**, and **scalability** in design.
+
+---
+
+## 🤝 Collaboration - Key to Success
+### With Whom?
+- **Fellow Backend Learners:** Share solutions, review code, and co-develop features.
+- **Frontend Learners:** Provide REST/GraphQL endpoints for their applications and coordinate API specs.
+
+### Where?
+- **Discord Channel:** `#ProDevProjectNexus`  
+  This is the central hub for interaction — sharing updates, troubleshooting, and aligning backend-frontend integration.
+
+---
+
+## 💡 ProDev Collaboration Tip
+- Use the **first week** to:
+  - Announce your project focus.
+  - Identify frontend learners building complementary projects.
+  - Plan API structures and data exchange early for seamless collaboration.
+
+---
+
+## 🏁 Repository Structure
 ```
-PapSmear-AI-Classification/
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── run_all.bat                      Windows: runs steps 1-3 for all backbones
-├── src/
-│   ├── common.py                    configuration, dataset/group parsing, splits, models
-│   ├── sort_dataset.py              step 0: sort the SIPaKMeD download into dataset/<Class>/
-│   ├── extract_features.py          step 1: frozen-backbone features, once per backbone
-│   ├── run_cv.py                    step 2: repeated 5-fold CV, naive and source-disjoint
-│   ├── analyze.py                   step 3: all tables, figures and statistics
-│   └── gradcam.py                   step 4: Grad-CAM on held-out cells
-├── notebooks/
-│   └── 00_data_verification.ipynb   class counts, filename parser check, source-image statistics
-├── outputs/
-│   ├── results/                     tables (CSV), fold composition, OOF prediction release file
-│   └── figures/                     figures used in the manuscript
-└── legacy/                          notebooks of the original submission (not used for any result)
-```
-
-## Data
-
-SIPaKMeD (Plissiti et al., 2018) is not redistributed here. Download it from Kaggle
-(https://www.kaggle.com/datasets/marinaeplissiti/sipakmed), for example with kagglehub:
-
-```python
-import kagglehub
-path = kagglehub.dataset_download("marinaeplissiti/sipakmed")
-print("Path to dataset files:", path)
-```
-
-or with the Kaggle CLI: `kaggle datasets download -d marinaeplissiti/sipakmed -p raw`.
-Copy or unpack the class folders (`im_Dyskeratotic`, ..., `im_Superficial-Intermediate`) into `raw/sipakmed/`, then run:
-
-```
-python src/sort_dataset.py
-```
-
-This copies the cropped-cell `.bmp` files from each `CROPPED/` folder into `dataset/<Class>/`, keeps the original filenames, and checks the class counts (813 / 825 / 793 / 787 / 831; 4,049 total).
-
-**Source-image groups.** Filenames have the form `{source_image_id}_{crop}.bmp`. Source-image numbering restarts within each class, so the group key is `<Class>__<source_image_id>`, giving 966 groups. Patient and slide identifiers are not distributed with SIPaKMeD; the source image is the highest independent unit available.
-
-## Protocol
-
-| Item | Setting |
-|---|---|
-| Backbones | EfficientNetB3 (300 px), ResNet50, DenseNet169, ConvNeXt-Tiny, TinyViT-5M (224 px); ImageNet-pretrained, frozen |
-| Head | GAP → dropout → dense (512 swish + BN for EfficientNetB3; 256 ReLU otherwise) → softmax |
-| Splits | `StratifiedKFold` (naive) vs `StratifiedGroupKFold` by source image; 5 folds × 5 repeats, seeds 42–46 |
-| Training | Adam 1e-4, batch 16, fixed 15 epochs |
-| Not used | hyperparameter search, early stopping, LR scheduling, checkpoint selection, augmentation, SMOTE, class weights |
-
-Because backbones are frozen and no augmentation is used, features are extracted once per backbone and only the head is trained in each fold. This is equivalent to training the frozen-backbone network end to end.
-
-## Reproducing the results
-
-Python 3.11. Install dependencies into a virtual environment:
-
-```
-pip install -r requirements.txt
-```
-
-Then, from the repository root:
-
-```
-python src/sort_dataset.py
-run_all.bat                                   (Windows; or run the loop below)
-python src/gradcam.py --arch <primary model>
-```
-
-Equivalent commands on any OS:
-
-```
-for A in ResNet50 EfficientNetB3 DenseNet169 TinyViT-5M ConvNeXtTiny; do
-    python src/extract_features.py --arch $A
-    python src/run_cv.py --arch $A --repeats 5
-done
-python src/analyze.py
-```
-
-On a CPU-only Intel Core i7 workstation, feature extraction takes about [[x]]–[[x]] minutes per backbone and cross-validation a few minutes per backbone.
-
-## Outputs
-
-| File | Content |
-|---|---|
-| `outputs/results/analysis_summary.txt` | all key numbers in one text file |
-| `outputs/results/fold_composition.csv` | images, source images and class counts per fold; validation images sharing a source image with training |
-| `outputs/results/table_main_metrics.csv` | accuracy, macro-F1, macro AUC, ECE, Brier, AURC per backbone and protocol |
-| `outputs/results/table_sli.csv` | Source-image Leakage Inflation with cluster-bootstrap 95% CIs |
-| `outputs/results/table_pairwise.csv` | pairwise backbone comparisons (source-disjoint), Holm-adjusted |
-| `outputs/results/table_per_class_source_disjoint.csv` | per-class precision, recall, F1 |
-| `outputs/results/oof_predictions_repeat1_all_models.csv` | one out-of-fold probability vector per image, backbone and protocol (first repetition), with fold and group IDs |
-| `outputs/figures/` | confusion matrix, ROC curves, reliability diagram, risk-coverage curves, SLI plot, Grad-CAM |
-
-## Legacy code
-
-`legacy/` contains the notebooks from the original submission (June 2026). They used single train/validation splits, pixel-space SMOTE and a different training procedure, and they do **not** implement the protocol above. They are kept for transparency only; no result in the revised manuscript comes from them.
-
-## Citation
-
-```bibtex
-@article{kiptoo2026sipakmed,
-  title   = {Quantifying source-image leakage in Pap smear cell classification: a source-disjoint cross-validation benchmark of CNN and transformer backbones on SIPaKMeD},
-  author  = {Kiptoo, Stephen and Nderu, Lawrence and Mutanu, Leah},
-  journal = {PeerJ Computer Science},
-  year    = {2026},
-  note    = {Under revision}
-}
+alx-project-nexus/
+│
+├── README.md             # Documentation (this file)
+├── /api_docs             # API endpoints and structure notes
+├── /diagrams             # Architecture & flow diagrams
+├── /notes                # Detailed topic notes and personal insights
+└── /resources            # References, articles, and tutorials
 ```
 
-Please also cite the dataset: Plissiti ME, Dimitrakopoulos P, Sfikas G, Nikou C, Krikoni O, Charchanti A. 2018. SIPaKMeD: a new dataset for feature and image based classification of normal and pathological cervical cells in Pap smear images. *IEEE ICIP 2018*, 3144–3148.
+---
 
-## License
+## 📚 References & Resources
+- [Django Official Documentation](https://docs.djangoproject.com/)
+- [Python AsyncIO Guide](https://docs.python.org/3/library/asyncio.html)
+- [Docker Documentation](https://docs.docker.com/)
+- [GitHub Actions CI/CD](https://docs.github.com/en/actions)
+- [GraphQL Docs](https://graphql.org/learn/)
 
-Code: MIT (see `LICENSE`). The SIPaKMeD images are subject to the dataset authors' terms and are not included.
+---
 
-## Contact
+## 🧑‍💻 Author
+**[Your Name]**  
+ProDev Backend Engineering Learner  
+GitHub: [yourusername](https://github.com/yourusername)  
+Discord: `@yourdiscordhandle`
 
-Stephen Kiptoo, stephen.kiptoo@jkuat.ac.ke (ORCID 0009-0008-1807-1989)
+---
+
+> “Backend engineering is not just about code — it’s about crafting systems that power user experiences reliably, securely, and at scale.”

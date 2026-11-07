@@ -1,0 +1,101 @@
+{
+  "n_folds": 5,
+  "fold_accuracies": [
+    0.9395465850830078,
+    0.9282115697860718,
+    0.9332493543624878,
+    0.9420654773712158,
+    0.9394703507423401
+  ],
+  "mean_accuracy": 0.9365086674690246,
+  "std_accuracy": 0.005066430684747997,
+  "class_names": [
+    "Dyskeratotic",
+    "Koilocytotic",
+    "Metaplastic",
+    "Parabasal",
+    "Superficial-Intermediate"
+  ],
+  "overall_classification_report": {
+    "Dyskeratotic": {
+      "precision": 0.945273631840796,
+      "recall": 0.9348093480934809,
+      "f1-score": 0.9400123685837971,
+      "support": 813.0
+    },
+    "Koilocytotic": {
+      "precision": 0.8859223300970874,
+      "recall": 0.8848484848484849,
+      "f1-score": 0.8853850818677986,
+      "support": 825.0
+    },
+    "Metaplastic": {
+      "precision": 0.8987654320987655,
+      "recall": 0.9180327868852459,
+      "f1-score": 0.9082969432314411,
+      "support": 793.0
+    },
+    "Parabasal": {
+      "precision": 0.9716859716859717,
+      "recall": 0.9593392630241423,
+      "f1-score": 0.9654731457800512,
+      "support": 787.0
+    },
+    "Superficial-Intermediate": {
+      "precision": 0.975796178343949,
+      "recall": 0.979539641943734,
+      "f1-score": 0.9776643267389917,
+      "support": 782.0
+    },
+    "accuracy": 0.93475,
+    "macro avg": {
+      "precision": 0.9354887088133139,
+      "recall": 0.9353139049590176,
+      "f1-score": 0.9353663732404158,
+      "support": 4000.0
+    },
+    "weighted avg": {
+      "precision": 0.9349759609632035,
+      "recall": 0.93475,
+      "f1-score": 0.9348282733552215,
+      "support": 4000.0
+    }
+  },
+  "aggregate_confusion_matrix": [
+    [
+      760,
+      34,
+      11,
+      6,
+      2
+    ],
+    [
+      27,
+      730,
+      46,
+      8,
+      14
+    ],
+    [
+      5,
+      50,
+      728,
+      7,
+      3
+    ],
+    [
+      11,
+      6,
+      15,
+      755,
+      0
+    ],
+    [
+      1,
+      4,
+      10,
+      1,
+      766
+    ]
+  ]
+}

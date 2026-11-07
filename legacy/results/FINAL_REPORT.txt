@@ -1,0 +1,63 @@
+
+================================================================================
+                    PAP SMEAR CLASSIFICATION - FINAL RESULTS
+================================================================================
+Date: 2026-06-04 11:14:20
+
+================================================================================
+1. CROSS-VALIDATION RESULTS (5-Fold)
+================================================================================
+Mean Accuracy: 93.65% +- 0.51%
+95% Confidence Interval: [92.65%, 94.65%]
+Range: 92.82% - 94.21%
+
+Individual Folds:
+   Fold 1: 93.95%
+   Fold 2: 92.82%
+   Fold 3: 93.32%
+   Fold 4: 94.21%
+   Fold 5: 93.95%
+
+================================================================================
+2. PER-CLASS PERFORMANCE (F1-Scores)
+================================================================================
+   Dyskeratotic: 0.94
+   Koilocytotic: 0.89
+   Metaplastic: 0.91
+   Parabasal: 0.97
+   Superficial-Intermediate: 0.98
+
+================================================================================
+3. MODEL COMPARISON
+================================================================================
+   Baseline Model: 91.46%
+   Cross-Validation: 93.65%
+   Improvement: +2.19%
+
+================================================================================
+4. CONCLUSIONS
+================================================================================
+The proposed EfficientNetB3-based model achieves excellent performance:
+- 93.65% mean cross-validation accuracy
+- Low variance (0.51%) indicating robustness
+- Strong per-class performance (all F1 > 0.89)
+- 2.19% improvement over baseline
+
+================================================================================
+5. OUTPUT FILES
+================================================================================
+Figures (outputs/figures/):
+   - cross_validation_results.png
+   - model_comparison.png
+   - confusion_matrix.png
+   - per_class_f1_scores.png
+
+Tables (outputs/tables/):
+   - cross_validation_results.csv
+   - per_class_performance.csv
+   - model_comparison.csv
+
+Data:
+   - final_summary.json
+
+================================================================================

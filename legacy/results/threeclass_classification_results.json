@@ -1,0 +1,82 @@
+{
+  "method": "Derived from 5-class EfficientNetB3 model",
+  "accuracy": 0.9158415841584159,
+  "class_names": [
+    "High-grade",
+    "Low-grade",
+    "Normal"
+  ],
+  "class_mapping": {
+    "High-grade": [
+      "Dyskeratotic",
+      "Metaplastic"
+    ],
+    "Low-grade": [
+      "Koilocytotic"
+    ],
+    "Normal": [
+      "Parabasal",
+      "Superficial-Intermediate"
+    ]
+  },
+  "per_class_accuracy": {
+    "High-grade": 0.928125,
+    "Low-grade": 0.7575757575757576,
+    "Normal": 0.9845201238390093
+  },
+  "classification_report": {
+    "High-grade": {
+      "precision": 0.8813056379821959,
+      "recall": 0.928125,
+      "f1-score": 0.9041095890410958,
+      "support": 320.0
+    },
+    "Low-grade": {
+      "precision": 0.8561643835616438,
+      "recall": 0.7575757575757576,
+      "f1-score": 0.8038585209003215,
+      "support": 165.0
+    },
+    "Normal": {
+      "precision": 0.9784615384615385,
+      "recall": 0.9845201238390093,
+      "f1-score": 0.9814814814814815,
+      "support": 323.0
+    },
+    "accuracy": 0.9158415841584159,
+    "macro avg": {
+      "precision": 0.9053105200017928,
+      "recall": 0.8900736271382556,
+      "f1-score": 0.8964831971409662,
+      "support": 808.0
+    },
+    "weighted avg": {
+      "precision": 0.9150099063923895,
+      "recall": 0.9158415841584159,
+      "f1-score": 0.9145671323765128,
+      "support": 808.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      297,
+      21,
+      2
+    ],
+    [
+      35,
+      125,
+      5
+    ],
+    [
+      5,
+      0,
+      318
+    ]
+  ],
+  "sample_counts": {
+    "High-grade": 320,
+    "Low-grade": 165,
+    "Normal": 323
+  }
+}

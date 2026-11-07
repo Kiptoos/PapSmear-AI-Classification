@@ -1,0 +1,88 @@
+{
+  "model": "retrained_efficientnet_b3",
+  "validation_accuracy": 0.9146039485931396,
+  "class_names": [
+    "Dyskeratotic",
+    "Koilocytotic",
+    "Metaplastic",
+    "Parabasal",
+    "Superficial-Intermediate"
+  ],
+  "per_class_metrics": {
+    "Dyskeratotic": {
+      "precision": 0.9759036144578314,
+      "recall": 1.0,
+      "f1_score": 0.9878048780487805,
+      "support": 162
+    },
+    "Koilocytotic": {
+      "precision": 0.8561643835616438,
+      "recall": 0.7575757575757576,
+      "f1_score": 0.8038585209003215,
+      "support": 165
+    },
+    "Metaplastic": {
+      "precision": 0.7894736842105263,
+      "recall": 0.8544303797468354,
+      "f1_score": 0.8206686930091185,
+      "support": 158
+    },
+    "Parabasal": {
+      "precision": 0.9873417721518988,
+      "recall": 0.9936305732484076,
+      "f1_score": 0.9904761904761905,
+      "support": 157
+    },
+    "Superficial-Intermediate": {
+      "precision": 0.9640718562874252,
+      "recall": 0.9698795180722891,
+      "f1_score": 0.9669669669669669,
+      "support": 166
+    }
+  },
+  "classification_report": {
+    "Dyskeratotic": {
+      "precision": 0.9759036144578314,
+      "recall": 1.0,
+      "f1-score": 0.9878048780487805,
+      "support": 162.0
+    },
+    "Koilocytotic": {
+      "precision": 0.8561643835616438,
+      "recall": 0.7575757575757576,
+      "f1-score": 0.8038585209003215,
+      "support": 165.0
+    },
+    "Metaplastic": {
+      "precision": 0.7894736842105263,
+      "recall": 0.8544303797468354,
+      "f1-score": 0.8206686930091185,
+      "support": 158.0
+    },
+    "Parabasal": {
+      "precision": 0.9873417721518988,
+      "recall": 0.9936305732484076,
+      "f1-score": 0.9904761904761905,
+      "support": 157.0
+    },
+    "Superficial-Intermediate": {
+      "precision": 0.9640718562874252,
+      "recall": 0.9698795180722891,
+      "f1-score": 0.9669669669669669,
+      "support": 166.0
+    },
+    "accuracy": 0.9146039603960396,
+    "macro avg": {
+      "precision": 0.9145910621338651,
+      "recall": 0.9151032457286579,
+      "f1-score": 0.9139550498802755,
+      "support": 808.0
+    },
+    "weighted avg": {
+      "precision": 0.914788288745871,
+      "recall": 0.9146039603960396,
+      "f1-score": 0.9137970026103647,
+      "support": 808.0
+    }
+  }
+}

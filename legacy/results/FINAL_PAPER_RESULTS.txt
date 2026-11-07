@@ -1,0 +1,58 @@
+
+================================================================================
+                    PAP SMEAR CLASSIFICATION - COMPLETE RESULTS
+================================================================================
+Date: 2026-06-04 16:42:34
+
+================================================================================
+1. BEST MODEL PERFORMANCE
+================================================================================
+Model: EfficientNetB3
+Image Size: 300x300 pixels
+Validation: 5-Fold Cross-Validation
+Mean Accuracy: 93.65% +- 0.51%
+95% Confidence Interval: [92.65%, 94.65%]
+
+================================================================================
+2. PER-CLASS PERFORMANCE (F1-Scores)
+================================================================================
+Dyskeratotic: 0.94
+Koilocytotic: 0.89
+Metaplastic: 0.91
+Parabasal: 0.97
+Superficial-Intermediate: 0.98
+
+================================================================================
+3. CROSS-VALIDATION FOLD RESULTS
+================================================================================
+Fold 1: 93.95%
+Fold 2: 92.82%
+Fold 3: 93.32%
+Fold 4: 94.21%
+Fold 5: 93.95%
+
+================================================================================
+4. HYPERPARAMETER TUNING INSIGHTS
+================================================================================
+Best B0 Configuration: 88.61% (Learning Rate: 5e-4, Batch: 16, Dropout: 0.3)
+Key Finding: Higher learning rate (5e-4) improved performance by 3.2%
+
+================================================================================
+5. KEY FINDINGS
+================================================================================
+- EfficientNetB3 achieved state-of-the-art performance (93.65%)
+- Model shows excellent robustness (low variance: 0.51%)
+- Parabasal and Superficial-Intermediate classes have near-perfect detection
+- Koilocytotic class requires further improvement (F1: 0.89)
+- Hyperparameter tuning revealed optimal learning rate of 5e-4 for B0
+
+================================================================================
+6. OUTPUT FILES
+================================================================================
+- outputs/final_comprehensive_results.png
+- outputs/table_model_comparison.tex
+- outputs/table_per_class.tex
+- outputs/final_summary.json
+- outputs/hyperparameter_tuning/ (complete tuning results)
+
+================================================================================

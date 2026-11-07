@@ -1,0 +1,16 @@
+A,B,A - B (pp),95% CI low,95% CI high,p,p_holm
+BEiT-B16,ConvNeXtTiny,1.02,0.14,1.94,0.0236,0.12
+BEiT-B16,DenseNet169,0.32,-0.54,1.19,0.4792,1.0
+BEiT-B16,EfficientNetB3,-0.01,-0.84,0.81,0.9672,1.0
+BEiT-B16,ResNet50,-1.39,-2.14,-0.64,0.0002,0.003
+BEiT-B16,TinyViT-5M,5.71,4.62,6.85,0.0002,0.003
+ConvNeXtTiny,DenseNet169,-0.7,-1.47,0.09,0.0824,0.3296
+ConvNeXtTiny,EfficientNetB3,-1.03,-1.99,-0.15,0.02,0.12
+ConvNeXtTiny,ResNet50,-2.41,-3.22,-1.6,0.0002,0.003
+ConvNeXtTiny,TinyViT-5M,4.69,3.64,5.8,0.0002,0.003
+DenseNet169,EfficientNetB3,-0.33,-1.24,0.58,0.4608,1.0
+DenseNet169,ResNet50,-1.7,-2.41,-1.03,0.0002,0.003
+DenseNet169,TinyViT-5M,5.39,4.15,6.66,0.0002,0.003
+EfficientNetB3,ResNet50,-1.37,-2.19,-0.57,0.0004,0.003
+EfficientNetB3,TinyViT-5M,5.72,4.53,6.92,0.0002,0.003
+ResNet50,TinyViT-5M,7.1,5.85,8.33,0.0002,0.003

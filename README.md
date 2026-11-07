@@ -1,346 +1,131 @@
-```markdown
 # PapSmear-AI-Classification
 
-**Multi-Class Pap Smear Cell Classification Using EfficientNet with Explainable AI**
+Code, fold assignments and out-of-fold predictions for:
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15+-orange.svg)](https://www.tensorflow.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+> Kiptoo S, Nderu L, Mutanu L. *Quantifying source-image leakage in Pap smear cell classification: a source-disjoint cross-validation benchmark of CNN and transformer backbones on SIPaKMeD.* PeerJ Computer Science (under revision, 2026).
 
----
+The study measures how much image-level random splitting inflates accuracy on SIPaKMeD, whose 4,049 cropped-cell images come from only 966 source cluster images. Five ImageNet-pretrained backbones are evaluated under paired **naive** (image-level) and **source-disjoint** (grouped by source image) five-fold cross-validation, repeated five times. Every reported number, table and figure is computed from pooled out-of-fold predictions covering all 4,049 images.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Dataset](#dataset)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Architectures](#model-architectures)
-- [Results](#results)
-- [Explainability](#explainability)
-- [Repository Structure](#repository-structure)
-- [Citation](#citation)
-- [License](#license)
-- [Contact](#contact)
-
----
-
-## 📖 Overview
-
-This repository contains the complete code and implementation for the paper:
-
-**"Multi-Class Pap Smear Cell Classification Using EfficientNet with Explainable AI: An AI Application for Cervical Cancer Screening"**
-
-The project presents a comprehensive deep learning framework for automated Pap smear cell classification using transfer learning with EfficientNet architectures. The framework supports multi-granularity classification (binary, three-class, and five-class) and includes explainable AI capabilities through Grad-CAM visualizations.
-
-**Key Contributions:**
-- ✅ Five-fold cross-validation for robust performance evaluation
-- ✅ Multi-granularity classification (binary, 3-class, 5-class)
-- ✅ Grad-CAM explainability for clinical interpretability
-- ✅ Confidence threshold analysis for deployment benchmarking
-- ✅ Comprehensive architecture comparison (EfficientNetB0/B3, ResNet50, DenseNet169)
-
----
-
-## 📊 Dataset
-
-### SIPaKMeD Database
-
-We use the **SIPaKMeD (Sivas Pathology Laboratory Pap Smear Image Database)**, a publicly available benchmark for Pap smear cell classification.
-
-| Class | Images | Description |
-|-------|--------|-------------|
-| Dyskeratotic | 813 | Abnormal keratinization, associated with HPV |
-| Koilocytotic | 825 | Perinuclear halos, pathognomonic for HPV |
-| Metaplastic | 793 | Immature squamous cells |
-| Parabasal | 787 | Small round cells, high N/C ratio |
-| Superficial-Intermediate | 831 | Mature squamous cells (normal) |
-
-**Dataset Source:** [SIPaKMeD Website](https://www.cs.uoi.gr/~marina/SIPaKMeD.html)
-
----
-
-## ✨ Features
-
-- **Deep Learning Models:** EfficientNetB0, EfficientNetB3, ResNet50, DenseNet169
-- **Transfer Learning:** Feature extraction and fine-tuning phases
-- **Data Augmentation:** Rotation, zoom, flip, brightness adjustment
-- **Class Imbalance Handling:** SMOTE and class weights
-- **Hyperparameter Optimization:** Grid search for optimal configuration
-- **Evaluation Metrics:** Precision, Recall, F1-Score, Accuracy, AUC
-- **Explainable AI:** Grad-CAM visualizations for model interpretability
-- **Confidence Calibration:** Threshold analysis for deployment benchmarking
-
----
-
-## 🔧 Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- TensorFlow 2.15 or higher
-- CUDA-capable GPU (recommended but not required)
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/Kiptoos/PapSmear-AI-Classification.git
-cd PapSmear-AI-Classification
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Requirements File
-
-```
-tensorflow>=2.15.0
-numpy>=1.24.0
-matplotlib>=3.7.0
-scikit-learn>=1.3.0
-scipy>=1.11.0
-opencv-python>=4.8.0
-pandas>=2.0.0
-seaborn>=0.12.0
-Pillow>=10.0.0
-```
-
----
-
-## 🚀 Usage
-
-### 1. Dataset Preparation
-
-```bash
-# Download SIPaKMeD dataset
-# Place images in the following structure:
-data/
-├── Dyskeratotic/
-├── Koilocytotic/
-├── Metaplastic/
-├── Parabasal/
-└── Superficial-Intermediate/
-```
-
-### 2. Data Preprocessing
-
-```bash
-python preprocess.py --data_dir data/ --output_dir processed_data/
-```
-
-### 3. Training Models
-
-**Train EfficientNetB3:**
-```bash
-python train_efficientnet.py --model B3 --epochs 50 --batch_size 16 --lr 5e-4
-```
-
-**Train ResNet50:**
-```bash
-python train_resnet.py --epochs 50 --batch_size 16 --lr 5e-4
-```
-
-**Train DenseNet169:**
-```bash
-python train_densenet.py --epochs 50 --batch_size 16 --lr 5e-4
-```
-
-### 4. Five-Fold Cross-Validation
-
-```bash
-python cross_validate.py --model efficientnetb3 --folds 5
-```
-
-### 5. Evaluation
-
-```bash
-python evaluate.py --model_path models/efficientnetb3_best.h5 --test_data processed_data/test/
-```
-
-### 6. Generate Results
-
-```bash
-python generate_metrics.py --model models/efficientnetb3_best.h5 --output results/
-```
-
-### 7. Grad-CAM Visualization
-
-```bash
-python gradcam.py --model models/efficientnetb3_best.h5 --image sample.png --output heatmap.png
-```
-
----
-
-## 🧠 Model Architectures
-
-| Model | Input Size | Parameters | ImageNet Top-1 Accuracy |
-|-------|------------|------------|------------------------|
-| EfficientNetB0 | 224×224 | 5.3M | 77.1% |
-| EfficientNetB3 | 300×300 | 12.0M | 81.6% |
-| ResNet50 | 224×224 | 25.6M | 74.9% |
-| DenseNet169 | 224×224 | 14.3M | 76.2% |
-
----
-
-## 📈 Results
-
-### Best Performing Model: EfficientNetB3
-
-| Metric | Value |
-|--------|-------|
-| **5-Fold CV Accuracy** | 93.65% ± 0.51% |
-| **Binary Accuracy** | 98.51% |
-| **3-Class Accuracy** | 91.58% |
-| **5-Class Macro F1** | 0.91 |
-
-### Architecture Comparison
-
-| Architecture | Accuracy | Inference (ms) |
-|--------------|----------|----------------|
-| EfficientNetB0 | 85.40% | 42 |
-| ResNet50 | 86.70% | 68 |
-| DenseNet169 | 85.80% | 55 |
-| **EfficientNetB3** | **93.65%** | **87** |
-
----
-
-## 🔍 Explainability
-
-Grad-CAM visualizations confirm that the model focuses on diagnostically relevant nuclear and perinuclear features, aligning with Bethesda System criteria.
-
-![Grad-CAM Example](outputs/gradcam/gradcam_summary_grid.png)
-
----
-
-## 📂 Repository Structure
+## Repository structure
 
 ```
 PapSmear-AI-Classification/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
-├── config.yaml
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
+├── run_all.bat                      Windows: runs steps 1-3 for all backbones
 ├── src/
-│   ├── preprocessing/
-│   │   ├── preprocess.py
-│   │   └── augmentation.py
-│   ├── models/
-│   │   ├── efficientnet.py
-│   │   ├── resnet.py
-│   │   └── densenet.py
-│   ├── training/
-│   │   ├── train.py
-│   │   └── cross_validate.py
-│   ├── evaluation/
-│   │   ├── evaluate.py
-│   │   └── metrics.py
-│   └── explainability/
-│       └── gradcam.py
-│
+│   ├── common.py                    configuration, dataset/group parsing, splits, models
+│   ├── sort_dataset.py              step 0: sort the SIPaKMeD download into dataset/<Class>/
+│   ├── extract_features.py          step 1: frozen-backbone features, once per backbone
+│   ├── run_cv.py                    step 2: repeated 5-fold CV, naive and source-disjoint
+│   ├── analyze.py                   step 3: all tables, figures and statistics
+│   └── gradcam.py                   step 4: Grad-CAM on held-out cells
 ├── notebooks/
-│   ├── data_exploration.ipynb
-│   └── results_analysis.ipynb
-│
+│   └── 00_data_verification.ipynb   class counts, filename parser check, source-image statistics
 ├── outputs/
-│   ├── gradcam/
-│   ├── confusion_matrix.png
-│   ├── roc_curves.png
-│   └── per_class_metrics.png
-│
-└── models/
-    ├── efficientnetb3_best.h5
-    └── checkpoints/
+│   ├── results/                     tables (CSV), fold composition, OOF prediction release file
+│   └── figures/                     figures used in the manuscript
+└── legacy/                          notebooks of the original submission (not used for any result)
 ```
 
----
+## Data
 
-## 📝 Citation
+SIPaKMeD (Plissiti et al., 2018) is not redistributed here. Download it from Kaggle
+(https://www.kaggle.com/datasets/marinaeplissiti/sipakmed), for example with kagglehub:
 
-If you use this code or dataset in your research, please cite our paper:
+```python
+import kagglehub
+path = kagglehub.dataset_download("marinaeplissiti/sipakmed")
+print("Path to dataset files:", path)
+```
+
+or with the Kaggle CLI: `kaggle datasets download -d marinaeplissiti/sipakmed -p raw`.
+Copy or unpack the class folders (`im_Dyskeratotic`, ..., `im_Superficial-Intermediate`) into `raw/sipakmed/`, then run:
+
+```
+python src/sort_dataset.py
+```
+
+This copies the cropped-cell `.bmp` files from each `CROPPED/` folder into `dataset/<Class>/`, keeps the original filenames, and checks the class counts (813 / 825 / 793 / 787 / 831; 4,049 total).
+
+**Source-image groups.** Filenames have the form `{source_image_id}_{crop}.bmp`. Source-image numbering restarts within each class, so the group key is `<Class>__<source_image_id>`, giving 966 groups. Patient and slide identifiers are not distributed with SIPaKMeD; the source image is the highest independent unit available.
+
+## Protocol
+
+| Item | Setting |
+|---|---|
+| Backbones | EfficientNetB3 (300 px), ResNet50, DenseNet169, ConvNeXt-Tiny, TinyViT-5M (224 px); ImageNet-pretrained, frozen |
+| Head | GAP → dropout → dense (512 swish + BN for EfficientNetB3; 256 ReLU otherwise) → softmax |
+| Splits | `StratifiedKFold` (naive) vs `StratifiedGroupKFold` by source image; 5 folds × 5 repeats, seeds 42–46 |
+| Training | Adam 1e-4, batch 16, fixed 15 epochs |
+| Not used | hyperparameter search, early stopping, LR scheduling, checkpoint selection, augmentation, SMOTE, class weights |
+
+Because backbones are frozen and no augmentation is used, features are extracted once per backbone and only the head is trained in each fold. This is equivalent to training the frozen-backbone network end to end.
+
+## Reproducing the results
+
+Python 3.11. Install dependencies into a virtual environment:
+
+```
+pip install -r requirements.txt
+```
+
+Then, from the repository root:
+
+```
+python src/sort_dataset.py
+run_all.bat                                   (Windows; or run the loop below)
+python src/gradcam.py --arch <primary model>
+```
+
+Equivalent commands on any OS:
+
+```
+for A in ResNet50 EfficientNetB3 DenseNet169 TinyViT-5M ConvNeXtTiny; do
+    python src/extract_features.py --arch $A
+    python src/run_cv.py --arch $A --repeats 5
+done
+python src/analyze.py
+```
+
+On a CPU-only Intel Core i7 workstation, feature extraction takes about [[x]]–[[x]] minutes per backbone and cross-validation a few minutes per backbone.
+
+## Outputs
+
+| File | Content |
+|---|---|
+| `outputs/results/analysis_summary.txt` | all key numbers in one text file |
+| `outputs/results/fold_composition.csv` | images, source images and class counts per fold; validation images sharing a source image with training |
+| `outputs/results/table_main_metrics.csv` | accuracy, macro-F1, macro AUC, ECE, Brier, AURC per backbone and protocol |
+| `outputs/results/table_sli.csv` | Source-image Leakage Inflation with cluster-bootstrap 95% CIs |
+| `outputs/results/table_pairwise.csv` | pairwise backbone comparisons (source-disjoint), Holm-adjusted |
+| `outputs/results/table_per_class_source_disjoint.csv` | per-class precision, recall, F1 |
+| `outputs/results/oof_predictions_repeat1_all_models.csv` | one out-of-fold probability vector per image, backbone and protocol (first repetition), with fold and group IDs |
+| `outputs/figures/` | confusion matrix, ROC curves, reliability diagram, risk-coverage curves, SLI plot, Grad-CAM |
+
+## Legacy code
+
+`legacy/` contains the notebooks from the original submission (June 2026). They used single train/validation splits, pixel-space SMOTE and a different training procedure, and they do **not** implement the protocol above. They are kept for transparency only; no result in the revised manuscript comes from them.
+
+## Citation
 
 ```bibtex
-@article{kiptoo2026papsmear,
-  title={Multi-Class Pap Smear Cell Classification Using EfficientNet with Explainable AI: An AI Application for Cervical Cancer Screening},
-  author={Kiptoo, Stephen and Nderu, Lawrence and Mutanu, Leah},
-  journal={PeerJ Computer Science},
-  year={2026}
+@article{kiptoo2026sipakmed,
+  title   = {Quantifying source-image leakage in Pap smear cell classification: a source-disjoint cross-validation benchmark of CNN and transformer backbones on SIPaKMeD},
+  author  = {Kiptoo, Stephen and Nderu, Lawrence and Mutanu, Leah},
+  journal = {PeerJ Computer Science},
+  year    = {2026},
+  note    = {Under revision}
 }
 ```
 
----
+Please also cite the dataset: Plissiti ME, Dimitrakopoulos P, Sfikas G, Nikou C, Krikoni O, Charchanti A. 2018. SIPaKMeD: a new dataset for feature and image based classification of normal and pathological cervical cells in Pap smear images. *IEEE ICIP 2018*, 3144–3148.
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Code: MIT (see `LICENSE`). The SIPaKMeD images are subject to the dataset authors' terms and are not included.
 
----
+## Contact
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📧 Contact
-
-**Stephen Kiptoo**
-- Email: kiptoos@gmail.com/stephen.kiptoo@jkuat.ac.ke
-- ORCID: 0009-0008-1807-1989
-
-**Lawrence Nderu**
-- Email: lnderu@jkuat.ac.ke
-
-**Leah Mutanu**
-- Email: lmutanu@usiu.ac.ke
-
----
-
-## 🙏 Acknowledgments
-
-- **SIPaKMeD Dataset:** Plissiti et al. (2018)
-- **Bethesda System:** Nayar and Wilbur (2015)
-- **TensorFlow Team:** For the deep learning framework
-
----
-
-## 📚 References
-
-1. World Health Organization (2024) Cervical cancer. WHO Fact Sheet.
-2. Nayar R and Wilbur DC (Eds.) (2015) The Bethesda System for Reporting Cervical Cytology.
-3. Tan M and Le QV (2019) EfficientNet: Rethinking model scaling. ICML.
-4. He K, Zhang X, Ren S and Sun J (2016) Deep residual learning. CVPR.
-5. Selvaraju RR et al. (2017) Grad-CAM: Visual explanations. ICCV.
-```
-
----
-
-## Quick Summary for PeerJ:
-
-| Requirement | Status |
-|:---|:---|
-| Title - Project name | ✅ PapSmear-AI-Classification |
-| Description | ✅ Complete overview |
-| Dataset Information | ✅ SIPaKMeD details included |
-| Code Information | ✅ Structure and usage explained |
-| Usage Instructions | ✅ Step-by-step commands |
-| Requirements | ✅ Dependencies listed |
-| Methodology | ✅ Training and evaluation explained |
-| Citations | ✅ Paper reference included |
-| License | ✅ MIT License |
-
-This README is professional, comprehensive, and meets all PeerJ requirements for reproducibility.
+Stephen Kiptoo, stephen.kiptoo@jkuat.ac.ke (ORCID 0009-0008-1807-1989)

@@ -1,0 +1,43 @@
+{
+  "model": "models/best_retrained_model.keras",
+  "validation_accuracy": 0.9146039603960396,
+  "test_samples": [
+    {
+      "true_class": "Dyskeratotic",
+      "predicted_class": "Dyskeratotic",
+      "confidence": 0.9936468601226807,
+      "correct": true
+    },
+    {
+      "true_class": "Koilocytotic",
+      "predicted_class": "Koilocytotic",
+      "confidence": 0.9689145088195801,
+      "correct": true
+    },
+    {
+      "true_class": "Metaplastic",
+      "predicted_class": "Metaplastic",
+      "confidence": 0.9995530247688293,
+      "correct": true
+    },
+    {
+      "true_class": "Parabasal",
+      "predicted_class": "Parabasal",
+      "confidence": 0.9998830556869507,
+      "correct": true
+    },
+    {
+      "true_class": "Superficial-Intermediate",
+      "predicted_class": "Superficial-Intermediate",
+      "confidence": 0.999992847442627,
+      "correct": true
+    }
+  ],
+  "class_names": [
+    "Dyskeratotic",
+    "Koilocytotic",
+    "Metaplastic",
+    "Parabasal",
+    "Superficial-Intermediate"
+  ]
+}

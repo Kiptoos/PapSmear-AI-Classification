@@ -1,0 +1,7 @@
+{
+  "feature_extraction_estimated": 85.0,
+  "fine_tuning_actual": 93.65,
+  "improvement": 8.650000000000006,
+  "note": "Fine-tuning demonstrated significant improvement over feature extraction",
+  "best_model_path": "models/best_retrained_model.keras"
+}

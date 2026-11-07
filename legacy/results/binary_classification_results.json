@@ -1,0 +1,44 @@
+{
+  "method": "Derived from 5-class EfficientNetB3 model",
+  "binary_accuracy": 0.9851485148514851,
+  "auc": 0.9979955954166799,
+  "abnormal_samples": 485,
+  "normal_samples": 323,
+  "classification_report": {
+    "Abnormal": {
+      "precision": 0.989648033126294,
+      "recall": 0.9855670103092784,
+      "f1-score": 0.987603305785124,
+      "support": 485.0
+    },
+    "Normal": {
+      "precision": 0.9784615384615385,
+      "recall": 0.9845201238390093,
+      "f1-score": 0.9814814814814815,
+      "support": 323.0
+    },
+    "accuracy": 0.9851485148514851,
+    "macro avg": {
+      "precision": 0.9840547857939163,
+      "recall": 0.9850435670741439,
+      "f1-score": 0.9845423936333028,
+      "support": 808.0
+    },
+    "weighted avg": {
+      "precision": 0.9851762041947147,
+      "recall": 0.9851485148514851,
+      "f1-score": 0.9851560913667126,
+      "support": 808.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      478,
+      7
+    ],
+    [
+      5,
+      318
+    ]
+  ]
+}

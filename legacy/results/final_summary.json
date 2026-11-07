@@ -1,0 +1,57 @@
+{
+  "best_model": {
+    "name": "EfficientNetB3",
+    "accuracy": 93.65,
+    "std": 0.51,
+    "image_size": 300,
+    "validation_type": "5-Fold Cross-Validation"
+  },
+  "per_class_performance": {
+    "Dyskeratotic": {
+      "precision": 0.95,
+      "recall": 0.93,
+      "f1": 0.94,
+      "support": 813
+    },
+    "Koilocytotic": {
+      "precision": 0.89,
+      "recall": 0.88,
+      "f1": 0.89,
+      "support": 825
+    },
+    "Metaplastic": {
+      "precision": 0.9,
+      "recall": 0.92,
+      "f1": 0.91,
+      "support": 793
+    },
+    "Parabasal": {
+      "precision": 0.97,
+      "recall": 0.96,
+      "f1": 0.97,
+      "support": 787
+    },
+    "Superficial-Intermediate": {
+      "precision": 0.98,
+      "recall": 0.98,
+      "f1": 0.98,
+      "support": 782
+    }
+  },
+  "hyperparameter_tuning_best": {
+    "accuracy": 88.61,
+    "model": "EfficientNetB0",
+    "learning_rate": "5e-4",
+    "batch_size": 16,
+    "dropout": 0.3
+  },
+  "cross_validation_folds": {
+    "Fold 1": 93.95,
+    "Fold 2": 92.82,
+    "Fold 3": 93.32,
+    "Fold 4": 94.21,
+    "Fold 5": 93.95
+  },
+  "baseline_accuracy": 91.46,
+  "total_improvement": 2.19
+}

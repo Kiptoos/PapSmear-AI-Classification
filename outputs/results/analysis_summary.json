@@ -1,0 +1,13 @@
+{
+  "primary_model": "ResNet50",
+  "n_images": 4049,
+  "n_groups": 966,
+  "archs": [
+    "BEiT-B16",
+    "ConvNeXtTiny",
+    "DenseNet169",
+    "EfficientNetB3",
+    "ResNet50",
+    "TinyViT-5M"
+  ]
+}

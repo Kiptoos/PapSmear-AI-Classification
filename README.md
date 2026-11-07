@@ -150,4 +150,4 @@ Code: MIT (see `LICENSE`). The SIPaKMeD images are subject to the dataset author
 
 ## Contact
 
-Stephen Kiptoo, stephen.kiptoo@jkuat.ac.ke (ORCID 0009-0008-1807-1989)
+Stephen Kiptoo, stephen.kiptoo@jkuat.ac.ke/kiptoos@gmail.com (ORCID 0009-0008-1807-1989)

@@ -142,7 +142,7 @@ On a CPU-only Intel Core i7 workstation, feature extraction takes about 4–33 m
 }
 ```
 
-Please also cite the dataset: Plissiti ME, Dimitrakopoulos P, Sfikas G, Nikou C, Krikoni O, Charchanti A. 2018. SIPaKMeD: a new dataset for feature and image based classification of normal and pathological cervical cells in Pap smear images. *IEEE ICIP 2018*, 3144–3148. https://doi.org/10.1109/ICIP.2018.8451588
+Please also cite the dataset: Plissiti ME, Dimitrakopoulos P, Sfikas G, Nikou C, Krikoni O, Charchanti A. 2018. SIPaKMeD: a new dataset for feature and image based classification of normal and pathological cervical cells in Pap smear images. *IEEE ICIP 2018*, 3144–3148. https://www.cs.uoi.gr/~sfikas/sipakmed2018.pdf
 
 ## License
 

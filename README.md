@@ -26,26 +26,8 @@ PapSmear-AI-Classification/
 ├── outputs/
 │   ├── results/                     tables (CSV), fold composition, OOF prediction release file
 │   └── figures/                     figures used in the manuscript
-└── legacy/
-    ├── notebooks/                   notebooks of the original submission
-    ├── gradcam/                     Grad-CAM images of the original submission
-    └── results/                     results of the original submission (superseded)
+└── legacy/                          notebooks of the original submission (not used for any result)
 ```
-
-## Key results
-
-Five-class accuracy (%) under five-fold cross-validation repeated five times (mean ± SD, n = 4,049). SLI = Source-image Leakage Inflation (naive minus source-disjoint accuracy), with source-image cluster-bootstrap 95% confidence intervals.
-
-| Backbone | Naive | Source-disjoint | SLI (pp) | 95% CI |
-|---|---|---|---|---|
-| ResNet50 | 94.93 ± 0.21 | **94.07 ± 0.27** | 0.86 | 0.46–1.33 |
-| BEiT-B/16 | 93.89 ± 0.21 | 92.68 ± 0.29 | 1.22 | 0.84–1.61 |
-| EfficientNetB3 | 93.63 ± 0.16 | 92.69 ± 0.17 | 0.94 | 0.57–1.30 |
-| DenseNet169 | 93.49 ± 0.27 | 92.36 ± 0.21 | 1.13 | 0.69–1.61 |
-| ConvNeXt-Tiny | 92.53 ± 0.15 | 91.66 ± 0.25 | 0.87 | 0.43–1.41 |
-| TinyViT-5M | 88.15 ± 0.30 | 86.97 ± 0.23 | 1.18 | 0.81–1.55 |
-
-Under naive splitting, 91.6% of validation images share a source image with the training data. All six backbones show a positive SLI (p < 0.001). ResNet50 has the highest source-disjoint accuracy (macro-F1 94.06%, macro AUC 0.9947, ECE 0.019).
 
 ## Data
 
@@ -83,7 +65,7 @@ Because backbones are frozen and no augmentation is used, features are extracted
 
 ## Reproducing the results
 
-Python 3.11 with TensorFlow 2.15.0, keras-cv-attention-models 1.4.3, scikit-learn 1.4.0, NumPy 1.26.4 and pandas 2.1.4. Install dependencies into a virtual environment:
+Python 3.11. Install dependencies into a virtual environment:
 
 ```
 pip install -r requirements.txt
@@ -94,7 +76,7 @@ Then, from the repository root:
 ```
 python src/sort_dataset.py
 run_all.bat                                   (Windows; or run the loop below)
-python src/gradcam.py --arch ResNet50
+python src/gradcam.py --arch <primary model>
 ```
 
 Equivalent commands on any OS:
@@ -119,16 +101,12 @@ On a CPU-only Intel Core i7 workstation, feature extraction takes about 4–33 m
 | `outputs/results/table_sli.csv` | Source-image Leakage Inflation with cluster-bootstrap 95% CIs |
 | `outputs/results/table_pairwise.csv` | pairwise backbone comparisons (source-disjoint), Holm-adjusted |
 | `outputs/results/table_per_class_source_disjoint.csv` | per-class precision, recall, F1 |
-| `outputs/results/metrics_per_repeat.csv` | every metric for each backbone, protocol and repetition |
-| `outputs/results/granularity_per_repeat.csv` | five-class, three-category and binary (abnormal vs non-abnormal) results |
-| `outputs/results/selective_classification_per_repeat.csv` | accuracy at 90/80/70/60/50% coverage |
-| `outputs/results/confusion_matrix_ResNet50_repeat1.csv` | pooled out-of-fold confusion matrix for the primary model |
 | `outputs/results/oof_predictions_repeat1_all_models.csv` | one out-of-fold probability vector per image, backbone and protocol (first repetition), with fold and group IDs |
 | `outputs/figures/` | confusion matrix, ROC curves, reliability diagram, risk-coverage curves, SLI plot, Grad-CAM |
 
 ## Legacy code
 
-`legacy/` contains the notebooks, Grad-CAM images and result files from the original submission (June 2026). They used single train/validation splits, pixel-space SMOTE and a different training procedure, and they do **not** implement the protocol above. They are kept for transparency only; no result in the revised manuscript comes from them. The files in `legacy/results/` report the original, leakage-affected numbers and are superseded by `outputs/results/`.
+`legacy/` contains the notebooks from the original submission (June 2026). They used single train/validation splits, pixel-space SMOTE and a different training procedure, and they do **not** implement the protocol above. They are kept for transparency only; no result in the revised manuscript comes from them.
 
 ## Citation
 
@@ -142,7 +120,7 @@ On a CPU-only Intel Core i7 workstation, feature extraction takes about 4–33 m
 }
 ```
 
-Please also cite the dataset: Plissiti ME, Dimitrakopoulos P, Sfikas G, Nikou C, Krikoni O, Charchanti A. 2018. SIPaKMeD: a new dataset for feature and image based classification of normal and pathological cervical cells in Pap smear images. *IEEE ICIP 2018*, 3144–3148. https://www.cs.uoi.gr/~sfikas/sipakmed2018.pdf
+Please also cite the dataset: Plissiti ME, Dimitrakopoulos P, Sfikas G, Nikou C, Krikoni O, Charchanti A. 2018. SIPaKMeD: a new dataset for feature and image based classification of normal and pathological cervical cells in Pap smear images. *IEEE ICIP 2018*, 3144–3148.
 
 ## License
 
@@ -150,4 +128,4 @@ Code: MIT (see `LICENSE`). The SIPaKMeD images are subject to the dataset author
 
 ## Contact
 
-Stephen Kiptoo, stephen.kiptoo@jkuat.ac.ke/kiptoos@gmail.com (ORCID 0009-0008-1807-1989)
+Stephen Kiptoo, stephen.kiptoo@jkuat.ac.ke (ORCID 0009-0008-1807-1989)

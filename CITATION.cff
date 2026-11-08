@@ -15,6 +15,7 @@ authors:
     given-names: Leah
     affiliation: "United States International University-Africa"
 version: "2.1"
+doi: 10.5281/zenodo.24062249
 date-released: "2026-11-09"
 repository-code: "https://github.com/Kiptoos/PapSmear-AI-Classification"
 license: MIT

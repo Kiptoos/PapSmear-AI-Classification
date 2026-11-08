@@ -1,1 +1,42 @@
-citation
+cff-version: 1.2.0
+message: "If you use this code or its results, please cite the article below."
+title: "PapSmear-AI-Classification: source-image leakage and cross-dataset evaluation of cervical cell classifiers"
+type: software
+authors:
+  - family-names: Kiptoo
+    given-names: Stephen
+    email: stephen.kiptoo@jkuat.ac.ke
+    orcid: "https://orcid.org/0009-0008-1807-1989"
+    affiliation: "Jomo Kenyatta University of Agriculture and Technology"
+  - family-names: Nderu
+    given-names: Lawrence
+    affiliation: "Jomo Kenyatta University of Agriculture and Technology"
+  - family-names: Mutanu
+    given-names: Leah
+    affiliation: "United States International University-Africa"
+version: "2.1"
+date-released: "2026-11-09"
+repository-code: "https://github.com/Kiptoos/PapSmear-AI-Classification"
+license: MIT
+keywords:
+  - cervical cytology
+  - Pap smear
+  - SIPaKMeD
+  - Herlev
+  - data leakage
+  - external validation
+  - deep learning
+preferred-citation:
+  type: article
+  title: "Quantifying Source-Image Leakage and Cross-Dataset Generalisation in Cervical Cell Classification: A Comparative Evaluation of CNN and Transformer Models"
+  authors:
+    - family-names: Kiptoo
+      given-names: Stephen
+      orcid: "https://orcid.org/0009-0008-1807-1989"
+    - family-names: Nderu
+      given-names: Lawrence
+    - family-names: Mutanu
+      given-names: Leah
+  journal: "PeerJ Computer Science"
+  year: 2026
+  status: submitted

@@ -1,0 +1,15 @@
+Backbone,Quantity,Estimate,Cluster CI,Image-level CI,Width ratio (cluster/image),Design effect
+BEiT-B16,SLI (pp),1.22,0.84 to 1.63,0.90 to 1.54,1.26,1.58
+BEiT-B16,Source-disjoint accuracy (%),92.68,91.45 to 93.72,91.93 to 93.32,1.64,2.68
+ConvNeXtTiny,SLI (pp),0.87,0.44 to 1.40,0.58 to 1.16,1.68,2.83
+ConvNeXtTiny,Source-disjoint accuracy (%),91.66,90.36 to 92.97,90.86 to 92.42,1.67,2.79
+DenseNet169,SLI (pp),1.13,0.68 to 1.60,0.82 to 1.44,1.5,2.24
+DenseNet169,Source-disjoint accuracy (%),92.36,91.13 to 93.50,91.67 to 93.06,1.71,2.93
+EfficientNetB3,SLI (pp),0.94,0.57 to 1.32,0.63 to 1.24,1.23,1.52
+EfficientNetB3,Source-disjoint accuracy (%),92.69,91.46 to 93.83,91.96 to 93.40,1.65,2.71
+ResNet50,SLI (pp),0.86,0.46 to 1.34,0.58 to 1.15,1.54,2.37
+ResNet50,Source-disjoint accuracy (%),94.07,92.98 to 95.09,93.44 to 94.69,1.7,2.89
+TinyViT-5M,SLI (pp),1.18,0.82 to 1.54,0.86 to 1.49,1.17,1.36
+TinyViT-5M,Source-disjoint accuracy (%),86.97,85.32 to 88.58,86.01 to 87.90,1.72,2.97
+All backbones (mean),SLI (pp),1.03,0.76 to 1.33,0.88 to 1.18,1.91,3.65
+All backbones (mean),Source-disjoint accuracy (%),91.74,90.55 to 92.84,91.17 to 92.30,2.03,4.12

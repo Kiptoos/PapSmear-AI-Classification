@@ -1,0 +1,7 @@
+Architecture,Normal superficial,Normal intermediate,Normal columnar,Mild dysplasia,Moderate dysplasia,Severe dysplasia,Carcinoma in situ
+BEiT-B16,3.78,2.86,36.53,51.1,45.75,38.48,44.67
+ConvNeXtTiny,8.65,8.57,75.71,53.63,60.68,75.84,75.33
+DenseNet169,5.95,16.0,90.2,84.62,79.18,83.55,88.53
+EfficientNetB3,15.41,58.29,82.24,81.65,74.38,66.8,67.2
+ResNet50,5.41,20.86,89.8,88.02,78.63,78.88,90.53
+TinyViT-5M,1.89,3.14,95.92,53.41,71.37,81.93,80.93

@@ -1,0 +1,4 @@
+metric,ranking_image_level,ranking_source_disjoint,kendall_tau,tau_p,bootstrap_P(top_model_differs)
+accuracy,ResNet50 > BEiT-B16 > EfficientNetB3 > DenseNet169 > ConvNeXtTiny > TinyViT-5M,ResNet50 > EfficientNetB3 > BEiT-B16 > DenseNet169 > ConvNeXtTiny > TinyViT-5M,0.8667,0.0167,0.0022
+balanced_accuracy,ResNet50 > BEiT-B16 > EfficientNetB3 > DenseNet169 > ConvNeXtTiny > TinyViT-5M,ResNet50 > EfficientNetB3 > BEiT-B16 > DenseNet169 > ConvNeXtTiny > TinyViT-5M,0.8667,0.0167,0.0012
+macro_f1,ResNet50 > BEiT-B16 > EfficientNetB3 > DenseNet169 > ConvNeXtTiny > TinyViT-5M,ResNet50 > EfficientNetB3 > BEiT-B16 > DenseNet169 > ConvNeXtTiny > TinyViT-5M,0.8667,0.0167,0.0022

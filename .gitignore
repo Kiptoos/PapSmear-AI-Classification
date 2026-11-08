@@ -29,3 +29,8 @@ log_*.txt
 .vscode/
 Thumbs.db
 .DS_Store
+
+# Herlev data (not redistributed) and large regenerable files
+data/
+outputs/features/herlev_*.npz
+outputs/results/oof_all_for_bootstrap.csv

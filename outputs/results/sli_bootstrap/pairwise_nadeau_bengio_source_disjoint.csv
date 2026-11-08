@@ -1,0 +1,16 @@
+model_A,model_B,metric,mean_diff_pp,t,df,p,p_holm
+BEiT-B16,ConvNeXtTiny,balanced_accuracy,1.0574,1.8967,24,0.07,0.4198
+BEiT-B16,DenseNet169,balanced_accuracy,0.2824,0.4068,24,0.6878,1.0
+BEiT-B16,EfficientNetB3,balanced_accuracy,0.0198,0.0295,24,0.9767,1.0
+BEiT-B16,ResNet50,balanced_accuracy,-1.4206,-2.526,24,0.0185,0.1484
+BEiT-B16,TinyViT-5M,balanced_accuracy,5.7286,10.4091,24,0.0,0.0
+ConvNeXtTiny,DenseNet169,balanced_accuracy,-0.775,-1.8575,24,0.0755,0.4198
+ConvNeXtTiny,EfficientNetB3,balanced_accuracy,-1.0376,-1.3656,24,0.1847,0.7389
+ConvNeXtTiny,ResNet50,balanced_accuracy,-2.4779,-5.2037,24,0.0,0.0002
+ConvNeXtTiny,TinyViT-5M,balanced_accuracy,4.6713,7.0492,24,0.0,0.0
+DenseNet169,EfficientNetB3,balanced_accuracy,-0.2626,-0.3177,24,0.7534,1.0
+DenseNet169,ResNet50,balanced_accuracy,-1.7029,-3.9918,24,0.0005,0.0048
+DenseNet169,TinyViT-5M,balanced_accuracy,5.4463,7.6602,24,0.0,0.0
+EfficientNetB3,ResNet50,balanced_accuracy,-1.4403,-2.2492,24,0.0339,0.2376
+EfficientNetB3,TinyViT-5M,balanced_accuracy,5.7089,6.928,24,0.0,0.0
+ResNet50,TinyViT-5M,balanced_accuracy,7.1492,10.7711,24,0.0,0.0

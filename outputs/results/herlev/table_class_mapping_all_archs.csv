@@ -1,0 +1,43 @@
+herlev_class,Architecture,Dyskeratotic,Koilocytotic,Metaplastic,Parabasal,Superficial-Intermediate
+Carcinoma in situ,BEiT-B16,26.7,15.3,22.7,35.3,0.0
+Mild dysplasia,BEiT-B16,2.7,53.8,15.9,18.1,9.3
+Moderate dysplasia,BEiT-B16,7.5,40.4,13.7,34.9,3.4
+Normal columnar,BEiT-B16,11.2,18.4,29.6,38.8,2.0
+Normal intermediate,BEiT-B16,0.0,2.9,1.4,1.4,94.3
+Normal superficial,BEiT-B16,2.7,0.0,0.0,0.0,97.3
+Severe dysplasia,BEiT-B16,20.8,15.2,25.4,38.6,0.0
+Carcinoma in situ,ConvNeXtTiny,32.0,43.3,18.7,6.0,0.0
+Mild dysplasia,ConvNeXtTiny,3.8,50.0,24.2,10.4,11.5
+Moderate dysplasia,ConvNeXtTiny,14.4,49.3,20.5,14.4,1.4
+Normal columnar,ConvNeXtTiny,20.4,60.2,12.2,6.1,1.0
+Normal intermediate,ConvNeXtTiny,0.0,11.4,4.3,4.3,80.0
+Normal superficial,ConvNeXtTiny,2.7,5.4,1.4,0.0,90.5
+Severe dysplasia,ConvNeXtTiny,17.3,58.4,18.3,6.1,0.0
+Carcinoma in situ,DenseNet169,44.0,45.3,8.7,2.0,0.0
+Mild dysplasia,DenseNet169,2.2,84.1,6.6,3.8,3.3
+Moderate dysplasia,DenseNet169,9.6,69.9,9.6,11.0,0.0
+Normal columnar,DenseNet169,16.3,72.4,4.1,7.1,0.0
+Normal intermediate,DenseNet169,0.0,10.0,0.0,0.0,90.0
+Normal superficial,DenseNet169,5.4,0.0,0.0,0.0,94.6
+Severe dysplasia,DenseNet169,32.0,48.7,13.2,6.1,0.0
+Carcinoma in situ,EfficientNetB3,26.0,42.0,21.3,10.7,0.0
+Mild dysplasia,EfficientNetB3,0.5,79.7,7.7,11.5,0.5
+Moderate dysplasia,EfficientNetB3,2.1,70.5,8.9,17.1,1.4
+Normal columnar,EfficientNetB3,3.1,79.6,9.2,8.2,0.0
+Normal intermediate,EfficientNetB3,0.0,58.6,7.1,0.0,34.3
+Normal superficial,EfficientNetB3,2.7,10.8,1.4,0.0,85.1
+Severe dysplasia,EfficientNetB3,7.1,58.9,14.2,19.8,0.0
+Carcinoma in situ,ResNet50,42.7,48.7,4.7,4.0,0.0
+Mild dysplasia,ResNet50,2.7,90.1,1.1,4.9,1.1
+Moderate dysplasia,ResNet50,6.2,75.3,3.4,15.1,0.0
+Normal columnar,ResNet50,10.2,80.6,0.0,9.2,0.0
+Normal intermediate,ResNet50,0.0,22.9,0.0,5.7,71.4
+Normal superficial,ResNet50,4.1,0.0,0.0,0.0,95.9
+Severe dysplasia,ResNet50,20.3,60.9,3.6,15.2,0.0
+Carcinoma in situ,TinyViT-5M,5.3,77.3,14.7,2.7,0.0
+Mild dysplasia,TinyViT-5M,1.6,56.0,33.0,3.8,5.5
+Moderate dysplasia,TinyViT-5M,2.7,71.2,14.4,10.3,1.4
+Normal columnar,TinyViT-5M,5.1,92.9,0.0,2.0,0.0
+Normal intermediate,TinyViT-5M,0.0,2.9,8.6,1.4,87.1
+Normal superficial,TinyViT-5M,1.4,2.7,4.1,0.0,91.9
+Severe dysplasia,TinyViT-5M,2.0,82.2,11.7,4.1,0.0

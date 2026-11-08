@@ -1,0 +1,7 @@
+model,ECE_image_level,Brier_image_level,ECE_source_disjoint,Brier_source_disjoint,Brier_diff,Brier_diff_CI_low,Brier_diff_CI_high
+BEiT-B16,0.0137,0.0909,0.0212,0.1072,-0.0163,-0.0215,-0.0116
+ConvNeXtTiny,0.0162,0.1101,0.0105,0.1241,-0.014,-0.0206,-0.0087
+DenseNet169,0.0085,0.0972,0.0126,0.1117,-0.0145,-0.0209,-0.009
+EfficientNetB3,0.0113,0.0937,0.0161,0.1081,-0.0144,-0.0192,-0.0099
+ResNet50,0.0143,0.0751,0.0193,0.0894,-0.0143,-0.0197,-0.0092
+TinyViT-5M,0.0252,0.1746,0.0187,0.1884,-0.0138,-0.0175,-0.0104

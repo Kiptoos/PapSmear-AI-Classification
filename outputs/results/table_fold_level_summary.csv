@@ -1,0 +1,13 @@
+Backbone,Protocol,Folds,Mean,SD,Min,Max
+BEiT-B16,naive,25,93.89,0.9,91.6,95.68
+BEiT-B16,source_disjoint,25,92.67,1.37,89.74,94.62
+ConvNeXtTiny,naive,25,92.53,0.86,91.36,94.07
+ConvNeXtTiny,source_disjoint,25,91.64,1.55,86.67,93.89
+DenseNet169,naive,25,93.49,1.04,91.73,95.8
+DenseNet169,source_disjoint,25,92.33,1.82,86.67,95.08
+EfficientNetB3,naive,25,93.63,0.76,92.22,95.3
+EfficientNetB3,source_disjoint,25,92.68,1.07,90.51,94.98
+ResNet50,naive,25,94.93,0.65,93.58,96.05
+ResNet50,source_disjoint,25,94.05,1.45,88.97,95.45
+TinyViT-5M,naive,25,88.15,0.92,86.3,89.63
+TinyViT-5M,source_disjoint,25,86.93,1.58,83.59,89.63

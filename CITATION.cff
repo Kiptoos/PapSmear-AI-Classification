@@ -14,7 +14,8 @@ authors:
   - family-names: Mutanu
     given-names: Leah
     affiliation: "United States International University-Africa"
-version: "2.1"
+version: "2.2"
+doi: 10.5281/zenodo.24074428
 doi: 10.5281/zenodo.24062249
 date-released: "2026-11-09"
 repository-code: "https://github.com/Kiptoos/PapSmear-AI-Classification"

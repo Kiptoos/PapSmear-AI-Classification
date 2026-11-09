@@ -2,7 +2,7 @@
 
 Code, fold assignments, out-of-fold predictions and external-evaluation results for:
 
-> Kiptoo S, Nderu L, Mutanu L. *Quantifying Source-Image Leakage and Cross-Dataset Generalisation in Cervical Cell Classification: A Comparative Evaluation of CNN and Transformer Models.* PeerJ Computer Science (under revision, 2026).
+> Kiptoo S, Nderu L, Mutanu L. *Quantifying source-image leakage and cross-dataset generalisation in cervical cell classification: a comparative evaluation of CNN and transformer models.* PeerJ Computer Science (under revision, 2026).
 
 SIPaKMeD's 4,049 cropped-cell images come from only 966 source cluster images, so image-level random splitting can place cells from the same source image in both training and test data. The study evaluates six ImageNet-pretrained backbones (four CNNs and two vision transformers) at three levels:
 
@@ -250,7 +250,7 @@ On a CPU-only Intel Core i7 workstation, SIPaKMeD feature extraction takes about
 
 ```bibtex
 @article{kiptoo2026leakage,
-  title   = {Quantifying Source-Image Leakage and Cross-Dataset Generalisation in Cervical Cell Classification: A Comparative Evaluation of {CNN} and Transformer Models},
+  title   = {Quantifying source-image leakage and cross-dataset generalisation in cervical cell classification: a comparative evaluation of {CNN} and transformer models},
   author  = {Kiptoo, Stephen and Nderu, Lawrence and Mutanu, Leah},
   journal = {PeerJ Computer Science},
   year    = {2026},

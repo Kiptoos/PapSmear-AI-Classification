@@ -30,7 +30,7 @@ keywords:
   - deep learning
 preferred-citation:
   type: article
-  title: "Quantifying source-image leakage and cross-dataset generalisation in cervical cell classification: a comparative evaluation of CNN and transformer models"
+  title: "Quantifying source-image leakage and cross-dataset generalisation in cervical cell classification: a comparative evaluation of convolutional neural network and transformer models"
   authors:
     - family-names: Kiptoo
       given-names: Stephen

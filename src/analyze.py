@@ -337,7 +337,7 @@ def main():
         ax.set_title(t); ax.legend(loc="lower right", fontsize=8); ax.set_aspect("equal")
     fig.suptitle(f"{primary}, out-of-fold probabilities, source-disjoint CV (n = {len(y5)})")
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG_DIR, "fig_roc.png"), dpi=300); plt.close(fig)
+    fig.savefig(os.path.join(FIG_DIR, "fig_roc.png"), dpi=250, bbox_inches="tight", pad_inches=0.05); plt.close(fig)
 
     # Reliability diagram
     conf, correct = P5.max(1), (P5.argmax(1) == y5)
@@ -374,14 +374,14 @@ def main():
                     yerr=[v.std(ddof=1) * 100 if len(v) > 1 else 0 for v in pr], capsize=3, label=lab)
     axes[0].set_xticks(x, archs, rotation=20); axes[0].set_ylabel("Pooled OOF accuracy (%)")
     lo_all = per_rep.accuracy.min() * 100
-    axes[0].set_ylim(np.floor(lo_all) - 2, 100); axes[0].legend(); axes[0].set_title("Accuracy by split strategy")
+    axes[0].set_ylim(0, 100); axes[0].legend(); axes[0].set_title("Accuracy by split strategy")
     axes[1].errorbar(x, sli["SLI (pp)"], yerr=[sli["SLI (pp)"] - sli["95% CI low"],
                                                sli["95% CI high"] - sli["SLI (pp)"]],
                      fmt="o", capsize=4)
     axes[1].axhline(0, color="k", lw=1)
     axes[1].set_xticks(x, archs, rotation=20); axes[1].set_ylabel("SLI (percentage points)")
     axes[1].set_title("Source-image leakage inflation, 95% bootstrap CI")
-    fig.tight_layout(); fig.savefig(os.path.join(FIG_DIR, "fig_sli.png"), dpi=300); plt.close(fig)
+    fig.tight_layout(); fig.savefig(os.path.join(FIG_DIR, "fig_sli.png"), dpi=250, bbox_inches="tight", pad_inches=0.05); plt.close(fig)
 
     # release file: one OOF prediction per image (repeat 1, every arch & strategy)
     release = df[df.repeat == 0].drop(columns=["seed"])
